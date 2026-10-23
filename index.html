@@ -174,10 +174,12 @@ button, input, select, textarea { max-width:100%; }
 <div><p><b>Utsav Tours &amp; Travels</b></p><p>Jogeshwari, Mumbai</p><p>CEO: Ram Sagar</p></div>
 </div><div class="copy">© 2026 Utsav Tours &amp; Travels. All rights reserved.</div></footer>
 <script>
-var PHONE='919702479779'; // replace with the WhatsApp number, country code first, no + or spaces
+var PHONE='917259186111'; // replace with the WhatsApp number, country code first, no + or spaces
 function send(e){e.preventDefault();
  if(/X/.test(PHONE)){document.getElementById('msg').textContent='Booking by WhatsApp isn’t set up yet. Please call us.';return false}
  var v=function(i){return document.getElementById(i).value};
- var t='Hello Utsav Travels, I’d like to book: '+v('svc')+'\nName: '+v('nm')+'\nPickup: '+v('pu')+'\nDrop/Hours: '+v('dr')+'\nSelected car: '+v('car')+'\nWhen: '+v('dt');
+ var rawDate=v('dt');
+ var formattedDate=rawDate ? new Date(rawDate).toLocaleString('en-US',{month:'long',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}) : 'Not specified';
+ var t='Hello Utsav Travels, I’d like to book: '+v('svc')+'\nName: '+v('nm')+'\nPickup: '+v('pu')+'\nDrop/Hours: '+v('dr')+'\nSelected car: '+v('car')+'\nWhen: '+formattedDate;
  window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(t),'_blank');return false}
 </script></body></html>
